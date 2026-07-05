@@ -73,6 +73,7 @@
 </head>
 
 <body>
+      <script src="https://accounts.google.com/gsi/client" async defer></script>
   <div class="login-container">
     <h1>Power‑AI‑Coach</h1>
     <p>Logga in för att komma åt din hälsodata och skapa din AI‑analys.</p>
@@ -87,11 +88,36 @@
     </footer>
   </div>
 
-  <script>
-    // Här kommer Google-inloggningskoden senare
-    document.getElementById("loginBtn").addEventListener("click", () => {
-      alert("Google-inloggning läggs in i nästa steg!");
+<script>
+  // === GOOGLE LOGIN ===
+
+  // 1. Initiera Google OAuth
+  function handleCredentialResponse(response) {
+    // Dekoda JWT-token
+    const data = JSON.parse(atob(response.credential.split('.')[1]));
+
+    // Spara användarinfo i localStorage
+    localStorage.setItem("userName", data.name);
+    localStorage.setItem("userEmail", data.email);
+    localStorage.setItem("userPicture", data.picture);
+    localStorage.setItem("userId", data.sub); // Viktigt! Unik Google-ID
+
+    // Skicka användaren vidare till dashboard
+    window.location.href = "dashboard.html";
+  }
+
+  window.onload = function () {
+    google.accounts.id.initialize({
+      client_id: "DIN_GOOGLE_CLIENT_ID_HÄR",
+      callback: handleCredentialResponse
     });
-  </script>
+
+    // Koppla Google-login till knappen
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      google.accounts.id.prompt();
+    });
+  };
+</script>
+
 </body>
 </html>
