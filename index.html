@@ -1,52 +1,71 @@
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="sv">
 <head>
   <meta charset="UTF-8">
-  <title>Power-AI Coach</title> 
+  <title>Power-AI-Coach – Login</title>
   <style>
     body {
       margin: 0;
       font-family: Arial, sans-serif;
       background: linear-gradient(135deg, #0a0f24, #1c2a4a);
       color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
       text-align: center;
-      padding: 0;
     }
- 
-    header {
-      padding: 60px 20px;
+
+    .login-container {
+      background: rgba(255, 255, 255, 0.05);
+      padding: 40px;
+      border-radius: 16px;
+      width: 90%;
+      max-width: 420px;
+      box-shadow: 0 0 40px rgba(0,0,0,0.4);
+      backdrop-filter: blur(10px);
     }
 
     h1 {
-      font-size: 48px;
+      font-size: 36px;
       margin-bottom: 10px;
       font-weight: 700;
     }
 
     p {
-      font-size: 20px;
-      opacity: 0.9;
-      margin-bottom: 40px;
-    }
-
-    .button {
-      display: inline-block;
-      padding: 15px 30px;
-      background: #4a90e2;
-      color: white;
-      border-radius: 8px;
-      text-decoration: none;
       font-size: 18px;
-      transition: 0.2s;
+      opacity: 0.85;
+      margin-bottom: 30px;
     }
 
-    .button:hover {
-      background: #357ab8;
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      background: white;
+      color: #333;
+      padding: 14px 20px;
+      border-radius: 8px;
+      font-size: 18px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.2s;
+      border: none;
+      width: 100%;
+    }
+
+    .google-btn:hover {
+      background: #e6e6e6;
+    }
+
+    .google-icon {
+      width: 24px;
+      height: 24px;
     }
 
     footer {
-      margin-top: 80px;
-      padding: 20px;
+      margin-top: 30px;
       font-size: 14px;
       opacity: 0.6;
     }
@@ -54,15 +73,25 @@
 </head>
 
 <body>
-  <header>
-    <h1>Power‑AI Coach</h1>
-    <p>Din smarta plattform för träning, kost och hälsa.</p>
-    <a class="button" href="#">Kom igång</a>
-  </header>
+  <div class="login-container">
+    <h1>Power‑AI‑Coach</h1>
+    <p>Logga in för att komma åt din hälsodata och skapa din AI‑analys.</p>
 
-  <footer>
-    © 2026 Power‑AI Coach
-  </footer>
+    <button class="google-btn" id="loginBtn">
+      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg">
+      Logga in med Google
+    </button>
+
+    <footer>
+      © 2026 Power‑AI‑Coach
+    </footer>
+  </div>
+
+  <script>
+    // Här kommer Google-inloggningskoden senare
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      alert("Google-inloggning läggs in i nästa steg!");
+    });
+  </script>
 </body>
 </html>
-
